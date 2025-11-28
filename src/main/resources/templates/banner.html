@@ -1,0 +1,30 @@
+<!-- banner.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>HEADER</title>
+</head>
+<body>
+
+    <!-- 배너 Fragment 정의 -->
+    <nav th:fragment="navbar" class="py-3 bg-primary mb-4">
+        <div class="container d-flex gap-4">
+
+            <!-- 공동 메뉴 -->
+            <a th:href="@{/}" class="text-white text-decoration-none">홈</a>
+
+            <!-- 로그인 X 상태 -->
+            <a th:if="${session.loginId == null}" th:href="@{/signUp}" class="text-white text-decoration-none">회원가입</a>
+            <a th:if="${session.loginId == null}" th:href="@{/login}" class="text-white text-decoration-none">로그인</a>
+
+            <!-- 로그인 O 상태 -->
+            <a th:if="${session.loginId != null}" th:href="@{/logout}" class="text-white text-decoration-none">로그아웃</a>
+
+            <a th:href="@{/showAll}" class="text-white text-decoration-none">회원목록</a>
+
+        </div>
+    </nav>
+
+</body>
+</html>

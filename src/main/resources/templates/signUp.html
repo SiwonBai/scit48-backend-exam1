@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>회원가입</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <script>
+        function validateForm() {
+            const userId = document.getElementById("userId").value.trim();
+            const userPwd = document.getElementById("userPwd").value.trim();
+            const pwdCheck = document.getElementById("pwdCheck").value.trim();
+            const userName = document.getElementById("userName").value.trim();
+            const userPhone = document.getElementById("userPhone").value.trim();
+
+            if (!userId || userId.length < 3 || userId.length > 14) {
+                alert("아이디는 3~14자 영문, 숫자, 특수문자를 포함할 수 있습니다.");
+                return false;
+            }
+
+            if (!userPwd || !pwdCheck || userPwd !== pwdCheck) {
+                alert("비밀번호가 비어 있거나 일치하지 않습니다.");
+                return false;
+            }
+
+            if (!userName) {
+                alert("이름을 입력해주세요.");
+                return false;
+            }
+
+            if (!userPhone || !(userPhone.length == 13)) {
+                alert("핸드폰 번호를 입력해주세요 (예: 010-1234-1234)");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+
+<body class="bg-light">
+
+<!-- 공통 배너 적용 -->
+<div th:replace="~{banner :: navbar}"></div>
+
+
+<div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-4">
+
+                <h1 class="text-center mb-4">회원가입</h1>
+
+                <form th:action="@{/signUp}" method="post" class="p-4 bg-white rounded shadow-sm">
+
+                    <div class="mb-3">
+                        <label class="form-label">아이디</label>
+                        <input type="text" name="id" id="userId" class="form-control">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">비밀번호</label>
+                        <input type="password" name="pwd" id="userPwd" class="form-control">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">비밀번호 확인</label>
+                        <input type="password" name="pwdCheck" id="pwdCheck" class="form-control">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">이름</label>
+                        <input type="text" name="name" id="userName" class="form-control">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">핸드폰</label>
+                        <input type="text" name="phone" id="userPhone" class="form-control">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100" onclick="return validateForm()">가입</button>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
