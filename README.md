@@ -12,7 +12,7 @@ Spring Boot + Thymeleaf를 이용하여 구현한
 - JavaScript로 유효성 검사
 - 회원가입 시 ID가 세션에 저장됨
 
-![img_1.png](img_1.png)
+![img_1.png](images/img_1.png)
 
 
 ## 2️⃣ 로그인 (Login)
@@ -21,8 +21,8 @@ Spring Boot + Thymeleaf를 이용하여 구현한
 - **ID 기억하기(localStorage)** 기능 포함  
   → 체크하면 다음 로그인 때 자동으로 ID 입력됨
 
-![img_2.png](img_2.png)
-![img_3.png](img_3.png)
+![img_2.png](images/img_2.png)
+![img_3.png](images/img_3.png)
 
 
 ## 3️⃣ 로그아웃 (Logout)
@@ -35,7 +35,7 @@ Spring Boot + Thymeleaf를 이용하여 구현한
 - DB에 저장된 모든 회원 목록을 테이블로 출력
 - Bootstrap을 사용해 테이블 UI 구성
 
-![img_4.png](img_4.png)
+![img_4.png](images/img_4.png)
 
 
 ## 5️⃣ 공통 배너 (Header)
